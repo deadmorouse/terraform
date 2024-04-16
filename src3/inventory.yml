@@ -1,0 +1,17 @@
+[webservers]
+
+netology-develop-platform-web-1 ansible_host=158.160.116.246
+
+netology-develop-platform-web-2 ansible_host=158.160.103.252
+
+
+[databases]
+
+main ansible_host=178.154.222.166
+
+replica ansible_host=158.160.59.232
+
+
+[storage]
+
+storage-1 ansible_host=158.160.103.114
