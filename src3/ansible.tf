@@ -3,6 +3,6 @@ resource "local_file" "ansible_inventory" {
   content = templatefile("ansible_temp.tftpl", {
     webservers = yandex_compute_instance.platform,
     databases = yandex_compute_instance.platformDB,
-    storage = yandex_compute_instance.storage,
+    storage = [yandex_compute_instance.storage],
   })
 }
