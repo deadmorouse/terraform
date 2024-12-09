@@ -70,3 +70,8 @@ variable "vms_ssh_root_key" {
   description = "ssh-keygen -t ed25519"
   sensitive = true
 }
+
+variable "storage" {
+  type        = string
+  default     = "storage-2"   
+}
