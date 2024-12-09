@@ -5,8 +5,7 @@ resource "yandex_compute_disk" "disk_vm" {
 }
 
 resource "yandex_compute_instance" "storage" {
-  count = 1
-  name        = "storage-${count.index+1}"
+  name        = var.storage
   depends_on = [yandex_compute_disk.disk_vm]
   platform_id = var.vm_web_plid
   resources {
@@ -21,7 +20,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
 dynamic "secondary_disk" {
-  for_each = yandex_compute_disk.disk_vm[*].id
+  for_each = toset(yandex_compute_disk.disk_vm[*].id) 
   content {
     disk_id = secondary_disk.value
   }
